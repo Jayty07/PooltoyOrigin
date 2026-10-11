@@ -9,7 +9,7 @@
       "y"
     ],
     "modifier": {
-      "operation": "max_total",
+      "operation": "min_total",
       "value": 0.08
     },
     "condition": {
@@ -25,7 +25,7 @@
       "y"
     ],
     "modifier": {
-      "operation": "max_total",
+      "operation": "min_total",
       "value": 0.3
     },
     "condition": {

@@ -16,7 +16,7 @@ It comes in two parts:
 | Power | File | Effect | Apoli type(s) |
 |---|---|---|---|
 | Bouncy | `bouncy.json` | No fall damage | `apoli:modify_damage_taken` |
-| Buoyant | `buoyant.json` | Can't go underwater: forced back up whenever water is above chest height or over your head; +50% horizontal speed in water | `apoli:multiple` → 3× `apoli:modify_velocity` (`max_total` on Y) |
+| Buoyant | `buoyant.json` | Can't go underwater: forced back up whenever water is above chest height or over your head; +50% horizontal speed in water | `apoli:multiple` → 3× `apoli:modify_velocity` (`min_total` on Y: a floor on upward movement) |
 | Floaty Jump | `floaty_jump.json` | +25% jump velocity; slow fall (sneak to fall normally) | `apoli:multiple` → `apoli:modify_jump` + `apoli:modify_falling` |
 | Air Reserve | `air_reserve.json` | Air runs out half as fast underwater | `apoli:action_over_time` + `apoli:gain_air` |
 | Puncturable | `weakness_sharp.json` | +50% damage from arrows, tridents, sword/axe hits, thorns, cactus, berry bushes, bee stings, dripstone | `apoli:modify_damage_taken` |
