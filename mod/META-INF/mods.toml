@@ -1,0 +1,33 @@
+modLoader="lowcodefml"
+loaderVersion="[47,)"
+license="MIT"
+issueTrackerURL="https://github.com/Jayty07/PooltoyOrigin/issues"
+
+[[mods]]
+modId="pooltoy"
+version="${version}"
+displayName="Pooltoy Origin"
+authors="Jayty07"
+displayURL="https://github.com/Jayty07/PooltoyOrigin"
+description='''Adds the Pooltoy origin to Origins: an inflatable that bounces, floats and squeaks, but pops easily.'''
+
+[[dependencies.pooltoy]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1,1.21)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.pooltoy]]
+    modId="origins"
+    mandatory=true
+    versionRange="*"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.pooltoy]]
+    modId="pehkui"
+    mandatory=false
+    versionRange="*"
+    ordering="NONE"
+    side="BOTH"

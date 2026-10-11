@@ -4,12 +4,7 @@ A custom origin for the [Origins](https://modrinth.com/mod/origins) mod: the **P
 
 **Targets:** Minecraft **1.20.1** with Origins. It works on **Fabric** (Origins 1.10.x, which includes Apoli 2.9.x) and on **Forge** (the Origins Forge port by EdwinMindcraft, which includes the Forge Apoli). `pack_format` is **15**, the same number for data packs and resource packs on 1.20.1.
 
-It comes in two parts:
-
-| Part | Folder | What it does |
-|---|---|---|
-| Data pack | `data/` | Adds the origin and its powers. Needed for the origin to exist. |
-| Resource pack | `assets/` | English names and descriptions. Without it you'll see raw keys like `origin.pooltoy.pooltoy.name`. |
+It ships as **one mod file**, `Pooltoy-<version>.jar`, which works on Forge, NeoForge and Fabric. It contains the origin and its powers (`data/`) and the English names (`assets/`). Separate data pack and resource pack zips are also built, for anyone who would rather not add a mod.
 
 ## Powers
 
@@ -32,20 +27,37 @@ The "sharp" damage sources are listed in `data/pooltoy/tags/damage_type/sharp.js
 
 ## Install (Windows)
 
-1. **Fabric:** install Fabric Loader for 1.20.1, then put **Fabric API** and **Origins (Fabric, 1.20.1)** in your `mods` folder.
-   **Forge:** install Forge for 1.20.1, then put **Origins (Forge, 1.20.1)** and the mods it lists as required in your `mods` folder.
-   Origins already includes Apoli on both.
-   For the **Inflated** (wider) and **Deflating** (shrink with health) powers, also add **Pehkui** for your loader and 1.20.1.
-2. Get `Pooltoy-datapack.zip` and `Pooltoy-resourcepack.zip`. Download them from the [Releases page](https://github.com/Jayty07/PooltoyOrigin/releases) if a release has been published, or build them yourself (see below).
-3. **Data pack:** copy `Pooltoy-datapack.zip` into your world's `datapacks` folder:
-   `%APPDATA%\.minecraft\saves\<YourWorld>\datapacks\`
-   For a new world, click **Data Packs** on the Create World screen and drag the zip in.
-4. **Resource pack:** copy `Pooltoy-resourcepack.zip` into `%APPDATA%\.minecraft\resourcepacks\`, then turn it on under **Options → Resource Packs**.
-5. Open the world. Pooltoy shows up in the origin selection screen. To pick again in an existing world, run `/origin gui @s` (needs cheats/op).
+### CurseForge app
 
-On a server, put the data pack in `world/datapacks/`. Each player installs the resource pack themselves, or you set it as the server resource pack.
+1. **Create Custom Profile** → Minecraft **1.20.1** → pick **Forge**, **NeoForge** or **Fabric**.
+2. In the profile, use **Add Content** to install **Origins** (the Forge version, or Fabric Origins plus **Fabric API**) and **Pehkui**. Pehkui is optional, but the Inflated, Deflating and Squishy powers need it.
+3. Click **⋯ → Open Folder**, open the `mods` folder, and drop `Pooltoy-<version>.jar` in.
+4. Press **Play**.
 
-## Build the zips yourself
+### Vanilla launcher
+
+1. Install the mod loader and Origins:
+   - **Forge / NeoForge:** install Forge (or NeoForge) for 1.20.1, then put **Origins (Forge, 1.20.1)** and the mods it lists as required in `%APPDATA%\.minecraft\mods`.
+   - **Fabric:** install Fabric Loader for 1.20.1, then put **Fabric API** and **Origins (Fabric, 1.20.1)** in `%APPDATA%\.minecraft\mods`.
+
+   Origins already includes Apoli. Also add **Pehkui** for your loader on 1.20.1. It's optional, but Inflated, Deflating and Squishy need it.
+2. Download `Pooltoy-<version>.jar` from the [Releases page](https://github.com/Jayty07/PooltoyOrigin/releases), or build it (see below), and drop it into the same `mods` folder.
+3. Start the game and open any world. Pooltoy shows up in the origin selection screen. In a world where you've already picked an origin, run `/origin gui @s` (needs cheats/op).
+
+**Servers:** put the jar in the server's `mods` folder too. Every player needs it, since it also carries the text.
+
+**Upgrading from the zips:** remove `Pooltoy-datapack.zip` from your world's `datapacks` folder and `Pooltoy-resourcepack.zip` from `resourcepacks`. The jar replaces both.
+
+### Uploading to CurseForge
+
+Upload the jar as a **Mod** file and tick **1.20.1** plus the **Forge**, **NeoForge** and **Fabric** loaders. Under related projects, mark **Origins** as a required dependency and **Pehkui** as optional. On Fabric, Fabric API is also required.
+
+### Without the mod (data pack + resource pack)
+
+1. Copy `Pooltoy-datapack.zip` into `%APPDATA%\.minecraft\saves\<YourWorld>\datapacks\`.
+2. Copy `Pooltoy-resourcepack.zip` into `%APPDATA%\.minecraft\resourcepacks\` and turn it on under **Options → Resource Packs**.
+
+## Build it yourself
 
 Requires [Python 3](https://www.python.org/downloads/). Open a terminal in this folder and run:
 
@@ -54,7 +66,7 @@ python tools/validate.py
 python tools/build.py
 ```
 
-`validate.py` checks that every JSON file is valid, that every Apoli type ID is in the verified 1.20.1 list, that the origin's powers exist, and that every name/description has a translation. `build.py` writes both zips to `dist/`.
+`validate.py` checks that every JSON file is valid, that every Apoli type ID is in the verified 1.20.1 list, that the origin's powers exist, and that every name/description has a translation. `build.py` writes the mod jar and both zips to `dist/`. The mod metadata lives in `mod/`: `fabric.mod.json` for Fabric, and `META-INF/mods.toml` for Forge/NeoForge, using the `lowcodefml` loader for mods that contain no code.
 
 ## Notes on Apoli 1.20.1
 
