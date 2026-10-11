@@ -15,7 +15,8 @@ It comes in two parts:
 
 | Power | File | Effect | Apoli type(s) |
 |---|---|---|---|
-| Inflated | `wide.json` | 2× normal player width (hitbox and model, about 1.2 blocks). Needs **Pehkui**; does nothing without it | `apoli:action_on_callback` + `apoli:execute_command` (`scale set pehkui:width 2 @s`, reset on removal, reapplied on respawn) |
+| Inflated | `wide.json` | 1.5× normal player width (hitbox and model, about 0.9 blocks). Needs **Pehkui**; does nothing without it | `apoli:action_on_callback` + `apoli:execute_command` (`scale set pehkui:width 1.5 @s`, reset on removal, reapplied on respawn) |
+| Deflating | `deflate.json` | Height shrinks with health: 100% at ≥90% health, −5% per 10% health lost, 55% below 10%. Smoothed over 10 ticks. Needs **Pehkui** | `apoli:multiple` → `apoli:action_over_time` (every 10 ticks, `apoli:if_else_list` on `apoli:relative_health` → `scale set pehkui:height …`) + `apoli:action_on_callback` (delay set / reset) |
 | Bouncy | `bouncy.json` | No fall damage | `apoli:modify_damage_taken` |
 | Buoyant | `buoyant.json` | Can't go underwater: forced back up whenever water is above chest height or over your head; +50% horizontal speed in water | `apoli:multiple` → 3× `apoli:modify_velocity` (`min_total` on Y: a floor on upward movement) |
 | Floaty Jump | `floaty_jump.json` | +25% jump velocity; slow fall (sneak to fall normally) | `apoli:multiple` → `apoli:modify_jump` + `apoli:modify_falling` |
@@ -31,7 +32,7 @@ The "sharp" damage sources are listed in `data/pooltoy/tags/damage_type/sharp.js
 1. **Fabric:** install Fabric Loader for 1.20.1, then put **Fabric API** and **Origins (Fabric, 1.20.1)** in your `mods` folder.
    **Forge:** install Forge for 1.20.1, then put **Origins (Forge, 1.20.1)** and the mods it lists as required in your `mods` folder.
    Origins already includes Apoli on both.
-   For the **Inflated** (2× width) power, also add **Pehkui** for your loader and 1.20.1.
+   For the **Inflated** (wider) and **Deflating** (shrink with health) powers, also add **Pehkui** for your loader and 1.20.1.
 2. Get `Pooltoy-datapack.zip` and `Pooltoy-resourcepack.zip`. Download them from the [Releases page](https://github.com/Jayty07/PooltoyOrigin/releases) if a release has been published, or build them yourself (see below).
 3. **Data pack:** copy `Pooltoy-datapack.zip` into your world's `datapacks` folder:
    `%APPDATA%\.minecraft\saves\<YourWorld>\datapacks\`

@@ -5,11 +5,11 @@
   "hidden": false,
   "entity_action_gained": {
     "type": "apoli:execute_command",
-    "command": "scale set pehkui:width 2 @s"
+    "command": "scale set pehkui:width 1.5 @s"
   },
   "entity_action_respawned": {
     "type": "apoli:execute_command",
-    "command": "scale set pehkui:width 2 @s"
+    "command": "scale set pehkui:width 1.5 @s"
   },
   "entity_action_removed": {
     "type": "apoli:execute_command",

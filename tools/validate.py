@@ -15,10 +15,11 @@ POWER_TYPES = {
 ENTITY_CONDITIONS = {
     "apoli:and", "apoli:or", "apoli:fluid_height", "apoli:sneaking",
     "apoli:swimming", "apoli:fall_flying", "apoli:submerged_in", "apoli:equipped_item",
+    "apoli:relative_health",
 }
 DAMAGE_CONDITIONS = {"apoli:and", "apoli:or", "apoli:name", "apoli:in_tag", "apoli:attacker"}
 ITEM_CONDITIONS = {"apoli:or", "apoli:ingredient"}
-ENTITY_ACTIONS = {"apoli:gain_air", "apoli:execute_command"}
+ENTITY_ACTIONS = {"apoli:gain_air", "apoli:execute_command", "apoli:and", "apoli:if_else_list"}
 BIENTITY_ACTIONS = {"apoli:add_velocity"}
 
 POWER_META_KEYS = {"type", "name", "description", "hidden", "condition", "loading_priority", "badges"}
@@ -60,6 +61,16 @@ ENTITY_NESTED = {"item_condition": (ITEM_CONDITIONS, "item condition", ITEM_NEST
 DAMAGE_NESTED = {"entity_condition": (ENTITY_CONDITIONS, "entity condition", ENTITY_NESTED)}
 
 
+def walk_entity_action(path, action):
+    check_type(path, action, ENTITY_ACTIONS, "entity action")
+    for sub in action.get("actions", []):
+        if action.get("type") == "apoli:if_else_list":
+            walk_condition(path, sub.get("condition"), ENTITY_CONDITIONS, "entity condition", ENTITY_NESTED)
+            walk_entity_action(path, sub.get("action", {}))
+        else:
+            walk_entity_action(path, sub)
+
+
 def check_power(path, power, top_level):
     check_type(path, power, POWER_TYPES, "power")
     if "condition" in power:
@@ -68,7 +79,7 @@ def check_power(path, power, top_level):
         walk_condition(path, power["damage_condition"], DAMAGE_CONDITIONS, "damage condition", DAMAGE_NESTED)
     for key in power:
         if key == "entity_action" or key.startswith("entity_action_"):
-            check_type(path, power[key], ENTITY_ACTIONS, "entity action")
+            walk_entity_action(path, power[key])
     if "bientity_action" in power:
         check_type(path, power["bientity_action"], BIENTITY_ACTIONS, "bi-entity action")
     if power.get("type") == "apoli:multiple":

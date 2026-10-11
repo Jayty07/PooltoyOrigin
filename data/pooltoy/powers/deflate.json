@@ -1,0 +1,149 @@
+{
+  "type": "apoli:multiple",
+  "name": "power.pooltoy.deflate.name",
+  "description": "power.pooltoy.deflate.description",
+  "hidden": false,
+  "shrink": {
+    "type": "apoli:action_over_time",
+    "interval": 10,
+    "entity_action": {
+      "type": "apoli:if_else_list",
+      "actions": [
+        {
+          "condition": {
+            "type": "apoli:relative_health",
+            "comparison": ">=",
+            "compare_to": 0.9
+          },
+          "action": {
+            "type": "apoli:execute_command",
+            "command": "scale set pehkui:height 1 @s"
+          }
+        },
+        {
+          "condition": {
+            "type": "apoli:relative_health",
+            "comparison": ">=",
+            "compare_to": 0.8
+          },
+          "action": {
+            "type": "apoli:execute_command",
+            "command": "scale set pehkui:height 0.95 @s"
+          }
+        },
+        {
+          "condition": {
+            "type": "apoli:relative_health",
+            "comparison": ">=",
+            "compare_to": 0.7
+          },
+          "action": {
+            "type": "apoli:execute_command",
+            "command": "scale set pehkui:height 0.9 @s"
+          }
+        },
+        {
+          "condition": {
+            "type": "apoli:relative_health",
+            "comparison": ">=",
+            "compare_to": 0.6
+          },
+          "action": {
+            "type": "apoli:execute_command",
+            "command": "scale set pehkui:height 0.85 @s"
+          }
+        },
+        {
+          "condition": {
+            "type": "apoli:relative_health",
+            "comparison": ">=",
+            "compare_to": 0.5
+          },
+          "action": {
+            "type": "apoli:execute_command",
+            "command": "scale set pehkui:height 0.8 @s"
+          }
+        },
+        {
+          "condition": {
+            "type": "apoli:relative_health",
+            "comparison": ">=",
+            "compare_to": 0.4
+          },
+          "action": {
+            "type": "apoli:execute_command",
+            "command": "scale set pehkui:height 0.75 @s"
+          }
+        },
+        {
+          "condition": {
+            "type": "apoli:relative_health",
+            "comparison": ">=",
+            "compare_to": 0.3
+          },
+          "action": {
+            "type": "apoli:execute_command",
+            "command": "scale set pehkui:height 0.7 @s"
+          }
+        },
+        {
+          "condition": {
+            "type": "apoli:relative_health",
+            "comparison": ">=",
+            "compare_to": 0.2
+          },
+          "action": {
+            "type": "apoli:execute_command",
+            "command": "scale set pehkui:height 0.65 @s"
+          }
+        },
+        {
+          "condition": {
+            "type": "apoli:relative_health",
+            "comparison": ">=",
+            "compare_to": 0.1
+          },
+          "action": {
+            "type": "apoli:execute_command",
+            "command": "scale set pehkui:height 0.6 @s"
+          }
+        },
+        {
+          "condition": {
+            "type": "apoli:relative_health",
+            "comparison": ">=",
+            "compare_to": 0.0
+          },
+          "action": {
+            "type": "apoli:execute_command",
+            "command": "scale set pehkui:height 0.55 @s"
+          }
+        }
+      ]
+    }
+  },
+  "setup": {
+    "type": "apoli:action_on_callback",
+    "entity_action_gained": {
+      "type": "apoli:execute_command",
+      "command": "scale delay set pehkui:height 10 @s"
+    },
+    "entity_action_respawned": {
+      "type": "apoli:execute_command",
+      "command": "scale delay set pehkui:height 10 @s"
+    },
+    "entity_action_removed": {
+      "type": "apoli:and",
+      "actions": [
+        {
+          "type": "apoli:execute_command",
+          "command": "scale reset pehkui:height @s"
+        },
+        {
+          "type": "apoli:execute_command",
+          "command": "scale delay reset pehkui:height @s"
+        }
+      ]
+    }
+  }
+}

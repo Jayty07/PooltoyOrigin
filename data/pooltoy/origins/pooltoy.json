@@ -8,6 +8,7 @@
   "order": 100,
   "powers": [
     "pooltoy:wide",
+    "pooltoy:deflate",
     "pooltoy:bouncy",
     "pooltoy:buoyant",
     "pooltoy:floaty_jump",

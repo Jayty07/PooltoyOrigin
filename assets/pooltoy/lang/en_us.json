@@ -16,5 +16,7 @@
   "power.pooltoy.weakness_knockback.name": "Lightweight",
   "power.pooltoy.weakness_knockback.description": "You weigh almost nothing. Hits send you flying farther, and knockback resistance (such as Netherite armor) does nothing for you.",
   "power.pooltoy.wide.name": "Inflated",
-  "power.pooltoy.wide.description": "You're twice as wide as a normal player, so you can't fit through 1-block gaps. Requires the Pehkui mod."
+  "power.pooltoy.wide.description": "You're 1.5x as wide as a normal player, so you can't fit through 1-block gaps. Requires the Pehkui mod.",
+  "power.pooltoy.deflate.name": "Deflating",
+  "power.pooltoy.deflate.description": "You shrink as you lose health, down to about half your normal height when nearly dead. Requires the Pehkui mod."
 }
