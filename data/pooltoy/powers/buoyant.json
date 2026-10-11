@@ -9,27 +9,28 @@
       "y"
     ],
     "modifier": {
-      "operation": "add_base_early",
-      "value": 0.04
+      "operation": "max_total",
+      "value": 0.08
     },
     "condition": {
-      "type": "apoli:and",
-      "conditions": [
-        {
-          "type": "apoli:fluid_height",
-          "fluid": "minecraft:water",
-          "comparison": ">",
-          "compare_to": 1.1
-        },
-        {
-          "type": "apoli:sneaking",
-          "inverted": true
-        },
-        {
-          "type": "apoli:swimming",
-          "inverted": true
-        }
-      ]
+      "type": "apoli:fluid_height",
+      "fluid": "minecraft:water",
+      "comparison": ">",
+      "compare_to": 1.0
+    }
+  },
+  "resurface": {
+    "type": "apoli:modify_velocity",
+    "axes": [
+      "y"
+    ],
+    "modifier": {
+      "operation": "max_total",
+      "value": 0.3
+    },
+    "condition": {
+      "type": "apoli:submerged_in",
+      "fluid": "minecraft:water"
     }
   },
   "swim_speed": {
