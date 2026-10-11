@@ -28,7 +28,7 @@ The "sharp" damage sources are listed in `data/pooltoy/tags/damage_type/sharp.js
 ## Install (Windows)
 
 1. Install Fabric Loader for 1.20.1, then put **Fabric API** and **Origins (Fabric, 1.20.1)** in your `mods` folder. Origins already includes Apoli.
-2. Download `Pooltoy-datapack.zip` and `Pooltoy-resourcepack.zip` from the [Releases page](https://github.com/Jayty07/PooltoyOrigin/releases). You can also build them yourself (see below).
+2. Get `Pooltoy-datapack.zip` and `Pooltoy-resourcepack.zip`. Download them from the [Releases page](https://github.com/Jayty07/PooltoyOrigin/releases) if a release has been published, or build them yourself (see below).
 3. **Data pack:** copy `Pooltoy-datapack.zip` into your world's `datapacks` folder:
    `%APPDATA%\.minecraft\saves\<YourWorld>\datapacks\`
    For a new world, click **Data Packs** on the Create World screen and drag the zip in.
