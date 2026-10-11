@@ -1,0 +1,31 @@
+{
+  "type": "apoli:multiple",
+  "name": "power.pooltoy.floaty_jump.name",
+  "description": "power.pooltoy.floaty_jump.description",
+  "hidden": false,
+  "jump": {
+    "type": "apoli:modify_jump",
+    "modifier": {
+      "operation": "multiply_total_multiplicative",
+      "value": 0.25
+    }
+  },
+  "slow_fall": {
+    "type": "apoli:modify_falling",
+    "velocity": 0.04,
+    "take_fall_damage": true,
+    "condition": {
+      "type": "apoli:and",
+      "conditions": [
+        {
+          "type": "apoli:sneaking",
+          "inverted": true
+        },
+        {
+          "type": "apoli:fall_flying",
+          "inverted": true
+        }
+      ]
+    }
+  }
+}

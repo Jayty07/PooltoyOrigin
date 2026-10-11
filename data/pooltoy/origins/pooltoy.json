@@ -1,0 +1,18 @@
+{
+  "name": "origin.pooltoy.pooltoy.name",
+  "description": "origin.pooltoy.pooltoy.description",
+  "icon": {
+    "item": "minecraft:lily_pad"
+  },
+  "impact": 2,
+  "order": 100,
+  "powers": [
+    "pooltoy:bouncy",
+    "pooltoy:buoyant",
+    "pooltoy:floaty_jump",
+    "pooltoy:air_reserve",
+    "pooltoy:weakness_sharp",
+    "pooltoy:weakness_fire",
+    "pooltoy:weakness_knockback"
+  ]
+}

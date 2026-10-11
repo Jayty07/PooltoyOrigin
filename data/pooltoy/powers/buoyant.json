@@ -1,0 +1,42 @@
+{
+  "type": "apoli:multiple",
+  "name": "power.pooltoy.buoyant.name",
+  "description": "power.pooltoy.buoyant.description",
+  "hidden": false,
+  "float": {
+    "type": "apoli:modify_velocity",
+    "axes": ["y"],
+    "modifier": {
+      "operation": "add_base_early",
+      "value": 0.04
+    },
+    "condition": {
+      "type": "apoli:and",
+      "conditions": [
+        {
+          "type": "apoli:fluid_height",
+          "fluid": "minecraft:water",
+          "comparison": ">",
+          "compare_to": 1.1
+        },
+        {
+          "type": "apoli:sneaking",
+          "inverted": true
+        },
+        {
+          "type": "apoli:swimming",
+          "inverted": true
+        }
+      ]
+    }
+  },
+  "swim_speed": {
+    "type": "apoli:attribute",
+    "modifier": {
+      "attribute": "additionalentityattributes:generic.water_speed",
+      "name": "Pooltoy swim speed",
+      "value": 0.5,
+      "operation": "multiply_base"
+    }
+  }
+}

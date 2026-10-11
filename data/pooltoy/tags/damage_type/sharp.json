@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:arrow",
+    "minecraft:trident",
+    "minecraft:thorns",
+    "minecraft:cactus",
+    "minecraft:sweet_berry_bush",
+    "minecraft:sting",
+    "minecraft:stalagmite",
+    "minecraft:falling_stalactite"
+  ]
+}

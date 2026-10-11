@@ -1,0 +1,18 @@
+{
+  "origin.pooltoy.pooltoy.name": "Pooltoy",
+  "origin.pooltoy.pooltoy.description": "A squeaky, air-filled inflatable come to life. Pooltoys bounce off the ground, bob on the water and drift through the air, but one sharp point or open flame is all it takes to spring a leak.",
+  "power.pooltoy.bouncy.name": "Bouncy",
+  "power.pooltoy.bouncy.description": "Your inflatable body absorbs every landing. You take no fall damage.",
+  "power.pooltoy.buoyant.name": "Buoyant",
+  "power.pooltoy.buoyant.description": "You float up to the surface of water and swim 50% faster. Sneak to dive underwater, or sprint-swim to stay down.",
+  "power.pooltoy.floaty_jump.name": "Floaty Jump",
+  "power.pooltoy.floaty_jump.description": "You jump higher and drift slowly back down. Sneak to fall at normal speed.",
+  "power.pooltoy.air_reserve.name": "Air Reserve",
+  "power.pooltoy.air_reserve.description": "You are full of air, so you can stay underwater twice as long before running out of breath.",
+  "power.pooltoy.weakness_sharp.name": "Puncturable",
+  "power.pooltoy.weakness_sharp.description": "Sharp things are your worst enemy. You take 50% more damage from arrows, tridents, swords, axes, thorns, cactus, berry bushes, bee stings and dripstone.",
+  "power.pooltoy.weakness_fire.name": "Meltable",
+  "power.pooltoy.weakness_fire.description": "Your vinyl skin melts easily. You take double damage from fire, lava, magma blocks and fireballs.",
+  "power.pooltoy.weakness_knockback.name": "Lightweight",
+  "power.pooltoy.weakness_knockback.description": "You weigh almost nothing. Hits send you flying farther, and knockback resistance (such as Netherite armor) does nothing for you."
+}

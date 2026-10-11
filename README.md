@@ -1,3 +1,59 @@
 # Pooltoy Origin
 
-Pooltoy origin data pack + resource pack for Origins (Minecraft 1.20.1 Fabric).
+A custom origin for the [Origins](https://modrinth.com/mod/origins) mod: the **Pooltoy**, an inflatable that bounces, floats and drifts, but pops easily.
+
+**Targets:** Minecraft **1.20.1**, **Fabric**, Origins **1.10.x** (bundles Apoli **2.9.x**). `pack_format` is **15** (the same number for data packs and resource packs on 1.20.1).
+
+It comes in two parts:
+
+| Part | Folder | What it does |
+|---|---|---|
+| Data pack | `data/` | Adds the origin and its powers. Needed for the origin to exist. |
+| Resource pack | `assets/` | English names and descriptions. Without it you'll see raw keys like `origin.pooltoy.pooltoy.name`. |
+
+## Powers
+
+| Power | File | Effect | Apoli type(s) |
+|---|---|---|---|
+| Bouncy | `bouncy.json` | No fall damage | `apoli:modify_damage_taken` |
+| Buoyant | `buoyant.json` | Floats up to the water surface (sneak or sprint-swim to dive); +50% swim speed | `apoli:multiple` → `apoli:modify_velocity` + `apoli:attribute` |
+| Floaty Jump | `floaty_jump.json` | +25% jump velocity; slow fall (sneak to fall normally) | `apoli:multiple` → `apoli:modify_jump` + `apoli:modify_falling` |
+| Air Reserve | `air_reserve.json` | Air runs out half as fast underwater | `apoli:action_over_time` + `apoli:gain_air` |
+| Puncturable | `weakness_sharp.json` | +50% damage from arrows, tridents, sword/axe hits, thorns, cactus, berry bushes, bee stings, dripstone | `apoli:modify_damage_taken` |
+| Meltable | `weakness_fire.json` | Double damage from fire, lava, magma blocks, fireballs | `apoli:modify_damage_taken` |
+| Lightweight | `weakness_knockback.json` | Knockback resistance is removed and each hit adds extra knockback | `apoli:multiple` → `apoli:attribute` + `apoli:modify_damage_taken` |
+
+The "sharp" damage sources are listed in `data/pooltoy/tags/damage_type/sharp.json`. Edit that file to add or remove sources.
+
+## Install (Windows)
+
+1. Install Fabric Loader for 1.20.1, then put **Fabric API** and **Origins (Fabric, 1.20.1)** in your `mods` folder. Origins already includes Apoli.
+2. Download `Pooltoy-datapack.zip` and `Pooltoy-resourcepack.zip` from the [Releases page](https://github.com/Jayty07/PooltoyOrigin/releases). You can also build them yourself (see below).
+3. **Data pack:** copy `Pooltoy-datapack.zip` into your world's `datapacks` folder:
+   `%APPDATA%\.minecraft\saves\<YourWorld>\datapacks\`
+   For a new world, click **Data Packs** on the Create World screen and drag the zip in.
+4. **Resource pack:** copy `Pooltoy-resourcepack.zip` into `%APPDATA%\.minecraft\resourcepacks\`, then turn it on under **Options → Resource Packs**.
+5. Open the world. Pooltoy shows up in the origin selection screen. To pick again in an existing world, run `/origin gui @s` (needs cheats/op).
+
+On a server, put the data pack in `world/datapacks/`. Each player installs the resource pack themselves, or you set it as the server resource pack.
+
+## Build the zips yourself
+
+Requires [Python 3](https://www.python.org/downloads/). Open a terminal in this folder and run:
+
+```
+python tools/validate.py
+python tools/build.py
+```
+
+`validate.py` checks that every JSON file is valid, that every Apoli type ID is in the verified 1.20.1 list, that the origin's powers exist, and that every name/description has a translation. `build.py` writes both zips to `dist/`.
+
+## Notes on Apoli 1.20.1
+
+These were checked against [apace100/apoli `2.9.2+mc.1.20.1`](https://github.com/apace100/apoli/tree/2.9.2+mc.1.20.1) and [EdwinMindcraft/origins-architectury](https://github.com/EdwinMindcraft/origins-architectury):
+
+- **`apoli:swimming` is not used.** On 1.20.1 it lets you swim through the *air* while sprinting. It does not make you float.
+- **`apoli:modify_swim_speed` is not used.** It's registered but nothing in Apoli 1.20.1 reads it, so it does nothing. Swim speed uses the `additionalentityattributes:generic.water_speed` attribute instead, like Origins' own Merling.
+- **Jump uses `apoli:modify_jump`, not an attribute.** Players don't have a jump-strength attribute until 1.20.5.
+- **Knockback resistance can't go below 0**, so reducing the attribute alone doesn't add knockback. It's set to ×0 (which also cancels Netherite's resistance) and an extra push is added on each hit.
+- **Air Reserve:** Apoli has no "water breathing" power type. Origins' Merling gills are handled in Origins' own Java code. Air Reserve refunds 1 air every 2 ticks while underwater instead.

@@ -1,0 +1,15 @@
+{
+  "type": "apoli:action_over_time",
+  "name": "power.pooltoy.air_reserve.name",
+  "description": "power.pooltoy.air_reserve.description",
+  "hidden": false,
+  "interval": 2,
+  "entity_action": {
+    "type": "apoli:gain_air",
+    "value": 1
+  },
+  "condition": {
+    "type": "apoli:submerged_in",
+    "fluid": "minecraft:water"
+  }
+}
