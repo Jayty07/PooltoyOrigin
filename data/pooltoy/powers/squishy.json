@@ -72,112 +72,48 @@
           }
         },
         {
-          "type": "apoli:and",
-          "actions": [
-            {
-              "type": "apoli:and",
-              "actions": [
-                {
-                  "type": "apoli:execute_command",
-                  "command": "scale delay set pehkui:model_height 2 @s"
-                },
-                {
-                  "type": "apoli:execute_command",
-                  "command": "scale delay set pehkui:model_width 2 @s"
-                },
-                {
-                  "type": "apoli:execute_command",
-                  "command": "scale delay set pehkui:eye_height 2 @s"
-                },
-                {
-                  "type": "apoli:execute_command",
-                  "command": "scale set pehkui:model_height 0.6 @s"
-                },
-                {
-                  "type": "apoli:execute_command",
-                  "command": "scale set pehkui:model_width 1.65 @s"
-                },
-                {
-                  "type": "apoli:execute_command",
-                  "command": "scale set pehkui:eye_height 0.6 @s"
-                }
-              ]
-            },
-            {
-              "type": "apoli:delay",
-              "ticks": 3,
-              "action": {
+          "type": "apoli:if_else",
+          "condition": {
+            "type": "apoli:fall_distance",
+            "comparison": ">=",
+            "compare_to": 2.0
+          },
+          "if_action": {
+            "type": "apoli:and",
+            "actions": [
+              {
                 "type": "apoli:and",
                 "actions": [
                   {
                     "type": "apoli:execute_command",
-                    "command": "scale delay set pehkui:model_height 3 @s"
+                    "command": "scale delay set pehkui:model_height 2 @s"
                   },
                   {
                     "type": "apoli:execute_command",
-                    "command": "scale delay set pehkui:model_width 3 @s"
+                    "command": "scale delay set pehkui:model_width 2 @s"
                   },
                   {
                     "type": "apoli:execute_command",
-                    "command": "scale delay set pehkui:eye_height 3 @s"
+                    "command": "scale delay set pehkui:eye_height 2 @s"
                   },
                   {
                     "type": "apoli:execute_command",
-                    "command": "scale set pehkui:model_height 1.15 @s"
+                    "command": "scale set pehkui:model_height 0.6 @s"
                   },
                   {
                     "type": "apoli:execute_command",
-                    "command": "scale set pehkui:model_width 1.12 @s"
+                    "command": "scale set pehkui:model_width 1.65 @s"
                   },
                   {
                     "type": "apoli:execute_command",
-                    "command": "scale set pehkui:eye_height 1.15 @s"
+                    "command": "scale set pehkui:eye_height 0.6 @s"
                   }
                 ]
-              }
-            },
-            {
-              "type": "apoli:delay",
-              "ticks": 6,
-              "action": {
-                "type": "apoli:and",
-                "actions": [
-                  {
-                    "type": "apoli:execute_command",
-                    "command": "scale delay set pehkui:model_height 3 @s"
-                  },
-                  {
-                    "type": "apoli:execute_command",
-                    "command": "scale delay set pehkui:model_width 3 @s"
-                  },
-                  {
-                    "type": "apoli:execute_command",
-                    "command": "scale delay set pehkui:eye_height 3 @s"
-                  },
-                  {
-                    "type": "apoli:execute_command",
-                    "command": "scale set pehkui:model_height 0.92 @s"
-                  },
-                  {
-                    "type": "apoli:execute_command",
-                    "command": "scale set pehkui:model_width 1.32 @s"
-                  },
-                  {
-                    "type": "apoli:execute_command",
-                    "command": "scale set pehkui:eye_height 0.92 @s"
-                  }
-                ]
-              }
-            },
-            {
-              "type": "apoli:delay",
-              "ticks": 9,
-              "action": {
-                "type": "apoli:if_else",
-                "condition": {
-                  "type": "apoli:sneaking"
-                },
-                "if_action": {
+              },
+              {
+                "type": "apoli:delay",
+                "ticks": 3,
+                "action": {
                   "type": "apoli:and",
                   "actions": [
                     {
@@ -194,50 +130,257 @@
                     },
                     {
                       "type": "apoli:execute_command",
-                      "command": "scale set pehkui:model_height 0.8 @s"
+                      "command": "scale set pehkui:model_height 1.15 @s"
                     },
                     {
                       "type": "apoli:execute_command",
-                      "command": "scale set pehkui:model_width 1.45 @s"
+                      "command": "scale set pehkui:model_width 1.12 @s"
                     },
                     {
                       "type": "apoli:execute_command",
-                      "command": "scale set pehkui:eye_height 0.8 @s"
+                      "command": "scale set pehkui:eye_height 1.15 @s"
                     }
                   ]
-                },
-                "else_action": {
+                }
+              },
+              {
+                "type": "apoli:delay",
+                "ticks": 6,
+                "action": {
                   "type": "apoli:and",
                   "actions": [
                     {
                       "type": "apoli:execute_command",
-                      "command": "scale delay set pehkui:model_height 4 @s"
+                      "command": "scale delay set pehkui:model_height 3 @s"
                     },
                     {
                       "type": "apoli:execute_command",
-                      "command": "scale delay set pehkui:model_width 4 @s"
+                      "command": "scale delay set pehkui:model_width 3 @s"
                     },
                     {
                       "type": "apoli:execute_command",
-                      "command": "scale delay set pehkui:eye_height 4 @s"
+                      "command": "scale delay set pehkui:eye_height 3 @s"
                     },
                     {
                       "type": "apoli:execute_command",
-                      "command": "scale set pehkui:model_height 1 @s"
+                      "command": "scale set pehkui:model_height 0.92 @s"
                     },
                     {
                       "type": "apoli:execute_command",
-                      "command": "scale set pehkui:model_width 1.25 @s"
+                      "command": "scale set pehkui:model_width 1.32 @s"
                     },
                     {
                       "type": "apoli:execute_command",
-                      "command": "scale set pehkui:eye_height 1 @s"
+                      "command": "scale set pehkui:eye_height 0.92 @s"
                     }
                   ]
                 }
+              },
+              {
+                "type": "apoli:delay",
+                "ticks": 9,
+                "action": {
+                  "type": "apoli:if_else",
+                  "condition": {
+                    "type": "apoli:sneaking"
+                  },
+                  "if_action": {
+                    "type": "apoli:and",
+                    "actions": [
+                      {
+                        "type": "apoli:execute_command",
+                        "command": "scale delay set pehkui:model_height 3 @s"
+                      },
+                      {
+                        "type": "apoli:execute_command",
+                        "command": "scale delay set pehkui:model_width 3 @s"
+                      },
+                      {
+                        "type": "apoli:execute_command",
+                        "command": "scale delay set pehkui:eye_height 3 @s"
+                      },
+                      {
+                        "type": "apoli:execute_command",
+                        "command": "scale set pehkui:model_height 0.8 @s"
+                      },
+                      {
+                        "type": "apoli:execute_command",
+                        "command": "scale set pehkui:model_width 1.45 @s"
+                      },
+                      {
+                        "type": "apoli:execute_command",
+                        "command": "scale set pehkui:eye_height 0.8 @s"
+                      }
+                    ]
+                  },
+                  "else_action": {
+                    "type": "apoli:and",
+                    "actions": [
+                      {
+                        "type": "apoli:execute_command",
+                        "command": "scale delay set pehkui:model_height 4 @s"
+                      },
+                      {
+                        "type": "apoli:execute_command",
+                        "command": "scale delay set pehkui:model_width 4 @s"
+                      },
+                      {
+                        "type": "apoli:execute_command",
+                        "command": "scale delay set pehkui:eye_height 4 @s"
+                      },
+                      {
+                        "type": "apoli:execute_command",
+                        "command": "scale set pehkui:model_height 1 @s"
+                      },
+                      {
+                        "type": "apoli:execute_command",
+                        "command": "scale set pehkui:model_width 1.25 @s"
+                      },
+                      {
+                        "type": "apoli:execute_command",
+                        "command": "scale set pehkui:eye_height 1 @s"
+                      }
+                    ]
+                  }
+                }
               }
-            }
-          ]
+            ]
+          },
+          "else_action": {
+            "type": "apoli:and",
+            "actions": [
+              {
+                "type": "apoli:and",
+                "actions": [
+                  {
+                    "type": "apoli:execute_command",
+                    "command": "scale delay set pehkui:model_height 2 @s"
+                  },
+                  {
+                    "type": "apoli:execute_command",
+                    "command": "scale delay set pehkui:model_width 2 @s"
+                  },
+                  {
+                    "type": "apoli:execute_command",
+                    "command": "scale delay set pehkui:eye_height 2 @s"
+                  },
+                  {
+                    "type": "apoli:execute_command",
+                    "command": "scale set pehkui:model_height 0.88 @s"
+                  },
+                  {
+                    "type": "apoli:execute_command",
+                    "command": "scale set pehkui:model_width 1.36 @s"
+                  },
+                  {
+                    "type": "apoli:execute_command",
+                    "command": "scale set pehkui:eye_height 0.88 @s"
+                  }
+                ]
+              },
+              {
+                "type": "apoli:delay",
+                "ticks": 2,
+                "action": {
+                  "type": "apoli:and",
+                  "actions": [
+                    {
+                      "type": "apoli:execute_command",
+                      "command": "scale delay set pehkui:model_height 2 @s"
+                    },
+                    {
+                      "type": "apoli:execute_command",
+                      "command": "scale delay set pehkui:model_width 2 @s"
+                    },
+                    {
+                      "type": "apoli:execute_command",
+                      "command": "scale delay set pehkui:eye_height 2 @s"
+                    },
+                    {
+                      "type": "apoli:execute_command",
+                      "command": "scale set pehkui:model_height 1.04 @s"
+                    },
+                    {
+                      "type": "apoli:execute_command",
+                      "command": "scale set pehkui:model_width 1.2 @s"
+                    },
+                    {
+                      "type": "apoli:execute_command",
+                      "command": "scale set pehkui:eye_height 1.04 @s"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "apoli:delay",
+                "ticks": 4,
+                "action": {
+                  "type": "apoli:if_else",
+                  "condition": {
+                    "type": "apoli:sneaking"
+                  },
+                  "if_action": {
+                    "type": "apoli:and",
+                    "actions": [
+                      {
+                        "type": "apoli:execute_command",
+                        "command": "scale delay set pehkui:model_height 3 @s"
+                      },
+                      {
+                        "type": "apoli:execute_command",
+                        "command": "scale delay set pehkui:model_width 3 @s"
+                      },
+                      {
+                        "type": "apoli:execute_command",
+                        "command": "scale delay set pehkui:eye_height 3 @s"
+                      },
+                      {
+                        "type": "apoli:execute_command",
+                        "command": "scale set pehkui:model_height 0.8 @s"
+                      },
+                      {
+                        "type": "apoli:execute_command",
+                        "command": "scale set pehkui:model_width 1.45 @s"
+                      },
+                      {
+                        "type": "apoli:execute_command",
+                        "command": "scale set pehkui:eye_height 0.8 @s"
+                      }
+                    ]
+                  },
+                  "else_action": {
+                    "type": "apoli:and",
+                    "actions": [
+                      {
+                        "type": "apoli:execute_command",
+                        "command": "scale delay set pehkui:model_height 3 @s"
+                      },
+                      {
+                        "type": "apoli:execute_command",
+                        "command": "scale delay set pehkui:model_width 3 @s"
+                      },
+                      {
+                        "type": "apoli:execute_command",
+                        "command": "scale delay set pehkui:eye_height 3 @s"
+                      },
+                      {
+                        "type": "apoli:execute_command",
+                        "command": "scale set pehkui:model_height 1 @s"
+                      },
+                      {
+                        "type": "apoli:execute_command",
+                        "command": "scale set pehkui:model_width 1.25 @s"
+                      },
+                      {
+                        "type": "apoli:execute_command",
+                        "command": "scale set pehkui:eye_height 1 @s"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
         }
       ]
     }

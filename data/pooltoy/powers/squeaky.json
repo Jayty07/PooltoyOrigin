@@ -10,7 +10,7 @@
   },
   "entity_action": {
     "type": "apoli:play_sound",
-    "sound": "minecraft:entity.slime.squish_small",
+    "sound": "minecraft:entity.fox.ambient",
     "volume": 1.0,
     "pitch": 1.0
   }
