@@ -11,7 +11,7 @@ POWER_TYPES = {
     "apoli:modify_damage_taken", "apoli:multiple", "apoli:modify_velocity",
     "apoli:attribute", "apoli:modify_jump", "apoli:modify_falling",
     "apoli:action_over_time", "apoli:action_on_callback", "apoli:resource",
-    "apoli:action_when_damage_taken", "apoli:action_on_item_use", "apoli:conditioned_attribute",
+    "apoli:action_when_damage_taken", "apoli:action_on_item_use", "apoli:conditioned_attribute", "apoli:action_on_land",
 }
 ENTITY_CONDITIONS = {
     "apoli:and", "apoli:or", "apoli:fluid_height", "apoli:sneaking",
@@ -21,7 +21,8 @@ ENTITY_CONDITIONS = {
 DAMAGE_CONDITIONS = {"apoli:and", "apoli:or", "apoli:name", "apoli:in_tag", "apoli:attacker"}
 ITEM_CONDITIONS = {"apoli:or", "apoli:ingredient", "apoli:food"}
 ENTITY_ACTIONS = {"apoli:gain_air", "apoli:execute_command", "apoli:and", "apoli:if_else_list",
-                  "apoli:change_resource", "apoli:damage", "apoli:play_sound"}
+                  "apoli:change_resource", "apoli:damage", "apoli:play_sound",
+                  "apoli:delay", "apoli:if_else"}
 BIENTITY_ACTIONS = {"apoli:add_velocity"}
 
 POWER_META_KEYS = {"type", "name", "description", "hidden", "condition", "loading_priority", "badges"}
@@ -65,6 +66,11 @@ DAMAGE_NESTED = {"entity_condition": (ENTITY_CONDITIONS, "entity condition", ENT
 
 def walk_entity_action(path, action):
     check_type(path, action, ENTITY_ACTIONS, "entity action")
+    if "condition" in action:
+        walk_condition(path, action["condition"], ENTITY_CONDITIONS, "entity condition", ENTITY_NESTED)
+    for key in ("action", "if_action", "else_action"):
+        if key in action:
+            walk_entity_action(path, action[key])
     for sub in action.get("actions", []):
         if action.get("type") == "apoli:if_else_list":
             walk_condition(path, sub.get("condition"), ENTITY_CONDITIONS, "entity condition", ENTITY_NESTED)
@@ -82,7 +88,7 @@ def check_power(path, power, top_level):
     if "damage_condition" in power:
         walk_condition(path, power["damage_condition"], DAMAGE_CONDITIONS, "damage condition", DAMAGE_NESTED)
     for key in power:
-        if key == "entity_action" or key.startswith("entity_action_"):
+        if key in ("entity_action", "rising_action", "falling_action") or key.startswith("entity_action_"):
             walk_entity_action(path, power[key])
     if "bientity_action" in power:
         check_type(path, power["bientity_action"], BIENTITY_ACTIONS, "bi-entity action")

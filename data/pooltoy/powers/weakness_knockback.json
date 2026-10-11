@@ -29,8 +29,8 @@
     },
     "bientity_action": {
       "type": "apoli:add_velocity",
-      "z": 0.5,
-      "y": 0.15
+      "z": 0.9,
+      "y": 0.25
     }
   }
 }

@@ -11,6 +11,7 @@
     "pooltoy:deflate",
     "pooltoy:leak",
     "pooltoy:squeaky",
+    "pooltoy:squishy",
     "pooltoy:bouncy",
     "pooltoy:buoyant",
     "pooltoy:floaty_jump",
