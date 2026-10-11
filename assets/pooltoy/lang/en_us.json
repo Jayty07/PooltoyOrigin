@@ -25,5 +25,5 @@
   "power.pooltoy.squeaky.description": "You squeak when you get hurt.",
   "death.attack.pooltoy.leak": "%1$s deflated",
   "power.pooltoy.squishy.name": "Squishy",
-  "power.pooltoy.squishy.description": "You squash and bounce back when you land or get hit, and squish down wider when you crouch. Requires the Pehkui mod."
+  "power.pooltoy.squishy.description": "You squash and bounce back (camera included) when you land or get hit, and squish down wider when you crouch. Falls of 2+ blocks bounce you back up unless you're sneaking. Requires the Pehkui mod."
 }

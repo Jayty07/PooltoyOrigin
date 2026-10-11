@@ -16,13 +16,13 @@ POWER_TYPES = {
 ENTITY_CONDITIONS = {
     "apoli:and", "apoli:or", "apoli:fluid_height", "apoli:sneaking",
     "apoli:swimming", "apoli:fall_flying", "apoli:submerged_in", "apoli:equipped_item",
-    "apoli:relative_health", "apoli:health", "apoli:resource",
+    "apoli:relative_health", "apoli:health", "apoli:resource", "apoli:fall_distance",
 }
 DAMAGE_CONDITIONS = {"apoli:and", "apoli:or", "apoli:name", "apoli:in_tag", "apoli:attacker"}
 ITEM_CONDITIONS = {"apoli:or", "apoli:ingredient", "apoli:food"}
 ENTITY_ACTIONS = {"apoli:gain_air", "apoli:execute_command", "apoli:and", "apoli:if_else_list",
                   "apoli:change_resource", "apoli:damage", "apoli:play_sound",
-                  "apoli:delay", "apoli:if_else"}
+                  "apoli:delay", "apoli:if_else", "apoli:add_velocity"}
 BIENTITY_ACTIONS = {"apoli:add_velocity"}
 
 POWER_META_KEYS = {"type", "name", "description", "hidden", "condition", "loading_priority", "badges"}
