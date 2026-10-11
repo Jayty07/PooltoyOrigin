@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parent.parent
 POWER_TYPES = {
     "apoli:modify_damage_taken", "apoli:multiple", "apoli:modify_velocity",
     "apoli:attribute", "apoli:modify_jump", "apoli:modify_falling",
-    "apoli:action_over_time",
+    "apoli:action_over_time", "apoli:action_on_callback",
 }
 ENTITY_CONDITIONS = {
     "apoli:and", "apoli:or", "apoli:fluid_height", "apoli:sneaking",
@@ -18,7 +18,7 @@ ENTITY_CONDITIONS = {
 }
 DAMAGE_CONDITIONS = {"apoli:and", "apoli:or", "apoli:name", "apoli:in_tag", "apoli:attacker"}
 ITEM_CONDITIONS = {"apoli:or", "apoli:ingredient"}
-ENTITY_ACTIONS = {"apoli:gain_air"}
+ENTITY_ACTIONS = {"apoli:gain_air", "apoli:execute_command"}
 BIENTITY_ACTIONS = {"apoli:add_velocity"}
 
 POWER_META_KEYS = {"type", "name", "description", "hidden", "condition", "loading_priority", "badges"}
@@ -66,8 +66,9 @@ def check_power(path, power, top_level):
         walk_condition(path, power["condition"], ENTITY_CONDITIONS, "entity condition", ENTITY_NESTED)
     if "damage_condition" in power:
         walk_condition(path, power["damage_condition"], DAMAGE_CONDITIONS, "damage condition", DAMAGE_NESTED)
-    if "entity_action" in power:
-        check_type(path, power["entity_action"], ENTITY_ACTIONS, "entity action")
+    for key in power:
+        if key == "entity_action" or key.startswith("entity_action_"):
+            check_type(path, power[key], ENTITY_ACTIONS, "entity action")
     if "bientity_action" in power:
         check_type(path, power["bientity_action"], BIENTITY_ACTIONS, "bi-entity action")
     if power.get("type") == "apoli:multiple":

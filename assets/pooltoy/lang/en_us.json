@@ -14,5 +14,7 @@
   "power.pooltoy.weakness_fire.name": "Meltable",
   "power.pooltoy.weakness_fire.description": "Your vinyl skin melts easily. You take double damage from fire, lava, magma blocks and fireballs.",
   "power.pooltoy.weakness_knockback.name": "Lightweight",
-  "power.pooltoy.weakness_knockback.description": "You weigh almost nothing. Hits send you flying farther, and knockback resistance (such as Netherite armor) does nothing for you."
+  "power.pooltoy.weakness_knockback.description": "You weigh almost nothing. Hits send you flying farther, and knockback resistance (such as Netherite armor) does nothing for you.",
+  "power.pooltoy.wide.name": "Inflated",
+  "power.pooltoy.wide.description": "You're twice as wide as a normal player, so you can't fit through 1-block gaps. Requires the Pehkui mod."
 }
