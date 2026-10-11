@@ -1,0 +1,53 @@
+{
+  "type": "apoli:modify_damage_taken",
+  "name": "power.pooltoy.weakness_sharp.name",
+  "description": "power.pooltoy.weakness_sharp.description",
+  "hidden": false,
+  "damage_condition": {
+    "type": "apoli:or",
+    "conditions": [
+      {
+        "type": "apoli:in_tag",
+        "tag": "pooltoy:sharp"
+      },
+      {
+        "type": "apoli:and",
+        "conditions": [
+          {
+            "type": "apoli:in_tag",
+            "tag": "minecraft:is_projectile",
+            "inverted": true
+          },
+          {
+            "type": "apoli:attacker",
+            "entity_condition": {
+              "type": "apoli:equipped_item",
+              "equipment_slot": "mainhand",
+              "item_condition": {
+                "type": "apoli:or",
+                "conditions": [
+                  {
+                    "type": "apoli:ingredient",
+                    "ingredient": {
+                      "tag": "minecraft:swords"
+                    }
+                  },
+                  {
+                    "type": "apoli:ingredient",
+                    "ingredient": {
+                      "tag": "minecraft:axes"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "modifier": {
+    "operation": "multiply_total_multiplicative",
+    "value": 0.5
+  }
+}

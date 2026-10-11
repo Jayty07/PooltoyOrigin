@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "pooltoy",
+  "version": "${version}",
+  "name": "Pooltoy Origin",
+  "description": "Adds the Pooltoy origin to Origins: an inflatable that bounces, floats and squeaks, but pops easily.",
+  "authors": ["Jayty07"],
+  "contact": {
+    "sources": "https://github.com/Jayty07/PooltoyOrigin"
+  },
+  "license": "MIT",
+  "environment": "*",
+  "depends": {
+    "minecraft": "~1.20.1",
+    "origins": "*",
+    "fabric-resource-loader-v0": "*"
+  },
+  "suggests": {
+    "pehkui": "*"
+  }
+}

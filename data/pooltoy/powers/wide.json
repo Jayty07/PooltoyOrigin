@@ -1,0 +1,53 @@
+{
+  "type": "apoli:action_on_callback",
+  "name": "power.pooltoy.wide.name",
+  "description": "power.pooltoy.wide.description",
+  "hidden": false,
+  "entity_action_gained": {
+    "type": "apoli:and",
+    "actions": [
+      {
+        "type": "apoli:execute_command",
+        "command": "scale reset pehkui:width @s"
+      },
+      {
+        "type": "apoli:execute_command",
+        "command": "scale set pehkui:hitbox_width 1.66 @s"
+      },
+      {
+        "type": "apoli:execute_command",
+        "command": "scale set pehkui:model_width 1.25 @s"
+      }
+    ]
+  },
+  "entity_action_respawned": {
+    "type": "apoli:and",
+    "actions": [
+      {
+        "type": "apoli:execute_command",
+        "command": "scale reset pehkui:width @s"
+      },
+      {
+        "type": "apoli:execute_command",
+        "command": "scale set pehkui:hitbox_width 1.66 @s"
+      },
+      {
+        "type": "apoli:execute_command",
+        "command": "scale set pehkui:model_width 1.25 @s"
+      }
+    ]
+  },
+  "entity_action_removed": {
+    "type": "apoli:and",
+    "actions": [
+      {
+        "type": "apoli:execute_command",
+        "command": "scale reset pehkui:hitbox_width @s"
+      },
+      {
+        "type": "apoli:execute_command",
+        "command": "scale reset pehkui:model_width @s"
+      }
+    ]
+  }
+}

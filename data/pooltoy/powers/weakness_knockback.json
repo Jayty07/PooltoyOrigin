@@ -1,0 +1,36 @@
+{
+  "type": "apoli:multiple",
+  "name": "power.pooltoy.weakness_knockback.name",
+  "description": "power.pooltoy.weakness_knockback.description",
+  "hidden": false,
+  "no_resistance": {
+    "type": "apoli:attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.knockback_resistance",
+      "name": "Pooltoy knockback weakness",
+      "value": -1.0,
+      "operation": "multiply_total"
+    }
+  },
+  "extra_knockback": {
+    "type": "apoli:modify_damage_taken",
+    "damage_condition": {
+      "type": "apoli:and",
+      "conditions": [
+        {
+          "type": "apoli:attacker"
+        },
+        {
+          "type": "apoli:in_tag",
+          "tag": "minecraft:is_explosion",
+          "inverted": true
+        }
+      ]
+    },
+    "bientity_action": {
+      "type": "apoli:add_velocity",
+      "z": 0.9,
+      "y": 0.25
+    }
+  }
+}
