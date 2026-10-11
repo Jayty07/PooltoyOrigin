@@ -13,10 +13,18 @@
       "value": 0.08
     },
     "condition": {
-      "type": "apoli:fluid_height",
-      "fluid": "minecraft:water",
-      "comparison": ">",
-      "compare_to": 1.0
+      "type": "apoli:in_block",
+      "block_condition": {
+        "type": "apoli:offset",
+        "y": 1,
+        "condition": {
+          "type": "apoli:fluid",
+          "fluid_condition": {
+            "type": "apoli:in_tag",
+            "tag": "minecraft:water"
+          }
+        }
+      }
     }
   },
   "resurface": {
@@ -29,8 +37,18 @@
       "value": 0.3
     },
     "condition": {
-      "type": "apoli:submerged_in",
-      "fluid": "minecraft:water"
+      "type": "apoli:in_block",
+      "block_condition": {
+        "type": "apoli:offset",
+        "y": 2,
+        "condition": {
+          "type": "apoli:fluid",
+          "fluid_condition": {
+            "type": "apoli:in_tag",
+            "tag": "minecraft:water"
+          }
+        }
+      }
     }
   },
   "swim_speed": {
@@ -44,10 +62,14 @@
       "value": 0.5
     },
     "condition": {
-      "type": "apoli:fluid_height",
-      "fluid": "minecraft:water",
-      "comparison": ">",
-      "compare_to": 0.0
+      "type": "apoli:in_block",
+      "block_condition": {
+        "type": "apoli:fluid",
+        "fluid_condition": {
+          "type": "apoli:in_tag",
+          "tag": "minecraft:water"
+        }
+      }
     }
   }
 }

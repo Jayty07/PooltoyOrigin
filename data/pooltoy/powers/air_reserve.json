@@ -9,7 +9,26 @@
     "value": 1
   },
   "condition": {
-    "type": "apoli:submerged_in",
-    "fluid": "minecraft:water"
+    "type": "apoli:or",
+    "conditions": [
+      {
+        "type": "apoli:submerged_in",
+        "fluid": "minecraft:water"
+      },
+      {
+        "type": "apoli:in_block",
+        "block_condition": {
+          "type": "apoli:offset",
+          "y": 1,
+          "condition": {
+            "type": "apoli:fluid",
+            "fluid_condition": {
+              "type": "apoli:in_tag",
+              "tag": "minecraft:water"
+            }
+          }
+        }
+      }
+    ]
   }
 }

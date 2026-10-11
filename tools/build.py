@@ -4,7 +4,7 @@ standalone dist/Pooltoy-datapack.zip and dist/Pooltoy-resourcepack.zip."""
 import zipfile
 from pathlib import Path
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / "dist"
 
