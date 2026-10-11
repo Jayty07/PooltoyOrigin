@@ -10,16 +10,18 @@ ROOT = Path(__file__).resolve().parent.parent
 POWER_TYPES = {
     "apoli:modify_damage_taken", "apoli:multiple", "apoli:modify_velocity",
     "apoli:attribute", "apoli:modify_jump", "apoli:modify_falling",
-    "apoli:action_over_time", "apoli:action_on_callback",
+    "apoli:action_over_time", "apoli:action_on_callback", "apoli:resource",
+    "apoli:action_when_damage_taken", "apoli:action_on_item_use", "apoli:conditioned_attribute",
 }
 ENTITY_CONDITIONS = {
     "apoli:and", "apoli:or", "apoli:fluid_height", "apoli:sneaking",
     "apoli:swimming", "apoli:fall_flying", "apoli:submerged_in", "apoli:equipped_item",
-    "apoli:relative_health",
+    "apoli:relative_health", "apoli:health", "apoli:resource",
 }
 DAMAGE_CONDITIONS = {"apoli:and", "apoli:or", "apoli:name", "apoli:in_tag", "apoli:attacker"}
-ITEM_CONDITIONS = {"apoli:or", "apoli:ingredient"}
-ENTITY_ACTIONS = {"apoli:gain_air", "apoli:execute_command", "apoli:and", "apoli:if_else_list"}
+ITEM_CONDITIONS = {"apoli:or", "apoli:ingredient", "apoli:food"}
+ENTITY_ACTIONS = {"apoli:gain_air", "apoli:execute_command", "apoli:and", "apoli:if_else_list",
+                  "apoli:change_resource", "apoli:damage", "apoli:play_sound"}
 BIENTITY_ACTIONS = {"apoli:add_velocity"}
 
 POWER_META_KEYS = {"type", "name", "description", "hidden", "condition", "loading_priority", "badges"}
@@ -75,6 +77,8 @@ def check_power(path, power, top_level):
     check_type(path, power, POWER_TYPES, "power")
     if "condition" in power:
         walk_condition(path, power["condition"], ENTITY_CONDITIONS, "entity condition", ENTITY_NESTED)
+    if "item_condition" in power:
+        walk_condition(path, power["item_condition"], ITEM_CONDITIONS, "item condition", ITEM_NESTED)
     if "damage_condition" in power:
         walk_condition(path, power["damage_condition"], DAMAGE_CONDITIONS, "damage condition", DAMAGE_NESTED)
     for key in power:
@@ -129,6 +133,9 @@ def main():
                 if power.get(key) != expected:
                     err(power_path, f"{key} should be {expected!r}")
                 used_keys.add(expected)
+
+    for dt_path in sorted((ROOT / "data").glob("*/damage_type/*.json")):
+        used_keys.add(f"death.attack.{(load(dt_path) or {}).get('message_id')}")
 
     for key in sorted(k for k in used_keys if k):
         if key not in lang:

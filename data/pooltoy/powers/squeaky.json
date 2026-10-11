@@ -1,0 +1,17 @@
+{
+  "type": "apoli:action_when_damage_taken",
+  "name": "power.pooltoy.squeaky.name",
+  "description": "power.pooltoy.squeaky.description",
+  "hidden": false,
+  "damage_condition": {
+    "type": "apoli:name",
+    "name": "pooltoy.leak",
+    "inverted": true
+  },
+  "entity_action": {
+    "type": "apoli:play_sound",
+    "sound": "minecraft:entity.slime.squish_small",
+    "volume": 1.0,
+    "pitch": 1.0
+  }
+}

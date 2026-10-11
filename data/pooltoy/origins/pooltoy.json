@@ -9,6 +9,8 @@
   "powers": [
     "pooltoy:wide",
     "pooltoy:deflate",
+    "pooltoy:leak",
+    "pooltoy:squeaky",
     "pooltoy:bouncy",
     "pooltoy:buoyant",
     "pooltoy:floaty_jump",

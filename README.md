@@ -16,7 +16,9 @@ It comes in two parts:
 | Power | File | Effect | Apoli type(s) |
 |---|---|---|---|
 | Inflated | `wide.json` | 1.5× normal player width (hitbox and model, about 0.9 blocks). Needs **Pehkui**; does nothing without it | `apoli:action_on_callback` + `apoli:execute_command` (`scale set pehkui:width 1.5 @s`, reset on removal, reapplied on respawn) |
-| Deflating | `deflate.json` | Height shrinks with health: 100% at ≥90% health, −5% per 10% health lost, 55% below 10%. Smoothed over 10 ticks. Needs **Pehkui** | `apoli:multiple` → `apoli:action_over_time` (every 10 ticks, `apoli:if_else_list` on `apoli:relative_health` → `scale set pehkui:height …`) + `apoli:action_on_callback` (delay set / reset) |
+| Deflating | `deflate.json` | Height and speed shrink with health: 100% at ≥90% health, then per 10% health lost −5% height (Pehkui) and −3.8% speed; 55% height / 66% speed below 10% | `apoli:multiple` → `apoli:action_over_time` (every 10 ticks, `apoli:if_else_list` on `apoli:relative_health` → `scale set pehkui:height …`) + `apoli:action_on_callback` (delay set / reset) + 9× `apoli:conditioned_attribute` (`generic.movement_speed` per health band) |
+| Leaky | `leak.json` | A piercing hit (same hits as Puncturable) starts a leak: −1 health/second (`pooltoy:leak` damage, ignores armor) until you eat any food. Stops at 2 health or less, so it never kills | `apoli:multiple` → `apoli:resource` (flag) + `apoli:action_when_damage_taken` + `apoli:action_over_time` + `apoli:action_on_item_use` |
+| Squeaky | `squeaky.json` | Slime squish sound when hurt (on top of the normal hurt sound) | `apoli:action_when_damage_taken` + `apoli:play_sound` |
 | Bouncy | `bouncy.json` | No fall damage | `apoli:modify_damage_taken` |
 | Buoyant | `buoyant.json` | Can't go underwater: forced back up whenever water is above chest height or over your head; +50% horizontal speed in water | `apoli:multiple` → 3× `apoli:modify_velocity` (`min_total` on Y: a floor on upward movement) |
 | Floaty Jump | `floaty_jump.json` | +25% jump velocity; slow fall (sneak to fall normally) | `apoli:multiple` → `apoli:modify_jump` + `apoli:modify_falling` |

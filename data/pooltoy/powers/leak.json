@@ -1,0 +1,143 @@
+{
+  "type": "apoli:multiple",
+  "name": "power.pooltoy.leak.name",
+  "description": "power.pooltoy.leak.description",
+  "hidden": false,
+  "punctured": {
+    "type": "apoli:resource",
+    "min": 0,
+    "max": 1,
+    "start_value": 0,
+    "hud_render": {
+      "should_render": false
+    }
+  },
+  "puncture": {
+    "type": "apoli:action_when_damage_taken",
+    "damage_condition": {
+      "type": "apoli:or",
+      "conditions": [
+        {
+          "type": "apoli:in_tag",
+          "tag": "pooltoy:sharp"
+        },
+        {
+          "type": "apoli:and",
+          "conditions": [
+            {
+              "type": "apoli:in_tag",
+              "tag": "minecraft:is_projectile",
+              "inverted": true
+            },
+            {
+              "type": "apoli:attacker",
+              "entity_condition": {
+                "type": "apoli:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                  "type": "apoli:or",
+                  "conditions": [
+                    {
+                      "type": "apoli:ingredient",
+                      "ingredient": {
+                        "tag": "minecraft:swords"
+                      }
+                    },
+                    {
+                      "type": "apoli:ingredient",
+                      "ingredient": {
+                        "tag": "minecraft:axes"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "entity_action": {
+      "type": "apoli:and",
+      "actions": [
+        {
+          "type": "apoli:change_resource",
+          "resource": "pooltoy:leak_punctured",
+          "change": 1,
+          "operation": "set"
+        },
+        {
+          "type": "apoli:play_sound",
+          "sound": "minecraft:entity.puffer_fish.blow_out",
+          "volume": 1.0,
+          "pitch": 1.0
+        }
+      ]
+    }
+  },
+  "drain": {
+    "type": "apoli:action_over_time",
+    "interval": 20,
+    "condition": {
+      "type": "apoli:and",
+      "conditions": [
+        {
+          "type": "apoli:resource",
+          "resource": "pooltoy:leak_punctured",
+          "comparison": "==",
+          "compare_to": 1
+        },
+        {
+          "type": "apoli:health",
+          "comparison": ">",
+          "compare_to": 2.0
+        }
+      ]
+    },
+    "entity_action": {
+      "type": "apoli:and",
+      "actions": [
+        {
+          "type": "apoli:damage",
+          "amount": 1.0,
+          "damage_type": "pooltoy:leak"
+        },
+        {
+          "type": "apoli:play_sound",
+          "sound": "minecraft:entity.puffer_fish.blow_out",
+          "volume": 0.6,
+          "pitch": 1.2
+        }
+      ]
+    }
+  },
+  "patch": {
+    "type": "apoli:action_on_item_use",
+    "item_condition": {
+      "type": "apoli:food"
+    },
+    "condition": {
+      "type": "apoli:resource",
+      "resource": "pooltoy:leak_punctured",
+      "comparison": "==",
+      "compare_to": 1
+    },
+    "entity_action": {
+      "type": "apoli:and",
+      "actions": [
+        {
+          "type": "apoli:change_resource",
+          "resource": "pooltoy:leak_punctured",
+          "change": 0,
+          "operation": "set"
+        },
+        {
+          "type": "apoli:play_sound",
+          "sound": "minecraft:entity.puffer_fish.blow_up",
+          "volume": 1.0,
+          "pitch": 1.0
+        }
+      ]
+    }
+  }
+}

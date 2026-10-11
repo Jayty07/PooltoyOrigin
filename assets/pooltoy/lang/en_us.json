@@ -18,5 +18,10 @@
   "power.pooltoy.wide.name": "Inflated",
   "power.pooltoy.wide.description": "You're 1.5x as wide as a normal player, so you can't fit through 1-block gaps. Requires the Pehkui mod.",
   "power.pooltoy.deflate.name": "Deflating",
-  "power.pooltoy.deflate.description": "You shrink as you lose health, down to about half your normal height when nearly dead. Requires the Pehkui mod."
+  "power.pooltoy.deflate.description": "You shrink and slow down as you lose health, down to about half height and 66% speed when nearly dead. Shrinking requires the Pehkui mod.",
+  "power.pooltoy.leak.name": "Leaky",
+  "power.pooltoy.leak.description": "Piercing hits puncture you: you slowly lose air (health) until you eat something. A leak can drain you to half a heart but never kills you.",
+  "power.pooltoy.squeaky.name": "Squeaky",
+  "power.pooltoy.squeaky.description": "You squeak when you get hurt.",
+  "death.attack.pooltoy.leak": "%1$s deflated"
 }
