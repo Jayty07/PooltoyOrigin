@@ -4,7 +4,7 @@
   "power.pooltoy.bouncy.name": "Bouncy",
   "power.pooltoy.bouncy.description": "Your inflatable body absorbs every landing. You take no fall damage.",
   "power.pooltoy.buoyant.name": "Buoyant",
-  "power.pooltoy.buoyant.description": "You float up to the surface of water and swim 50% faster. Sneak to dive underwater, or sprint-swim to stay down.",
+  "power.pooltoy.buoyant.description": "You float up to the surface of water and move 50% faster through it. Sneak to dive underwater, or sprint-swim to stay down.",
   "power.pooltoy.floaty_jump.name": "Floaty Jump",
   "power.pooltoy.floaty_jump.description": "You jump higher and drift slowly back down. Sneak to fall at normal speed.",
   "power.pooltoy.air_reserve.name": "Air Reserve",

@@ -5,7 +5,9 @@
   "hidden": false,
   "float": {
     "type": "apoli:modify_velocity",
-    "axes": ["y"],
+    "axes": [
+      "y"
+    ],
     "modifier": {
       "operation": "add_base_early",
       "value": 0.04
@@ -31,12 +33,20 @@
     }
   },
   "swim_speed": {
-    "type": "apoli:attribute",
+    "type": "apoli:modify_velocity",
+    "axes": [
+      "x",
+      "z"
+    ],
     "modifier": {
-      "attribute": "additionalentityattributes:generic.water_speed",
-      "name": "Pooltoy swim speed",
-      "value": 0.5,
-      "operation": "multiply_base"
+      "operation": "multiply_total_multiplicative",
+      "value": 0.5
+    },
+    "condition": {
+      "type": "apoli:fluid_height",
+      "fluid": "minecraft:water",
+      "comparison": ">",
+      "compare_to": 0.0
     }
   }
 }
